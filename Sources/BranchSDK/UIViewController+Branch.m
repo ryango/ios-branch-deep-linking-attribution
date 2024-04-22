@@ -18,14 +18,7 @@
         if ([[UIApplicationClass sharedApplication].delegate respondsToSelector:@selector(window)]) {
             keyWindow = [UIApplicationClass sharedApplication].delegate.window;
         }
-        if (keyWindow && !keyWindow.isHidden && keyWindow.rootViewController) return keyWindow;
-
-        keyWindow = [UIApplicationClass sharedApplication].keyWindow;
-        if (keyWindow && !keyWindow.isHidden && keyWindow.rootViewController) return keyWindow;
-
-        for (keyWindow in [UIApplicationClass sharedApplication].windows.reverseObjectEnumerator) {
-            if (!keyWindow.isHidden && keyWindow.rootViewController) return keyWindow;
-        }
+        return keyWindow;
     }
 
     // ToDo: Put different code for extensions here.
